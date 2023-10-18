@@ -2,12 +2,9 @@
  
     background-color: rgb(255, 115, 0);
     font-size: larger;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     margin: 0;
 }
-
-
-
 
 nav{
     float: left; 
@@ -28,16 +25,21 @@ nav{
     border-right: 0px solid #F1502F;
   }
   
-  nav a {
+  nav button {
     display: block;
     text-decoration:none;
-    color: white;
+    color: #ffffff;
     padding: 15px;
-    background-color: #3c516b;
+    background-color: #F1502F;
+    font-weight: bold;
+
+    border: none;
+    font-size: large;
+    width: 70pt;
   }
   
-  nav a:hover{
-    background-color: #acb5c0;
+  nav button:hover{
+    background-color: #f27258;
     color: #000000;
   }
 
