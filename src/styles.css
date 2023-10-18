@@ -1,3 +1,12 @@
+body {
+ 
+  background-color: #1e1a22;
+  font-size: larger;
+  font-family: "Poppins";
+  margin: 0;
+}
+
+
 .fakta {
  
     background-color: rgb(255, 115, 0);
@@ -28,16 +37,21 @@ nav{
     border-right: 0px solid #F1502F;
   }
   
-  nav a {
+  nav button {
     display: block;
     text-decoration:none;
-    color: white;
+    color: #ffffff;
     padding: 15px;
-    background-color: #3c516b;
+    background-color: #F1502F;
+    font-weight: bold;
+
+    border: none;
+    font-size: large;
+    width: 70pt;
   }
   
-  nav a:hover{
-    background-color: #acb5c0;
+  nav button:hover{
+    background-color: #f27258;
     color: #000000;
   }
 
