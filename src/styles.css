@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 115, 0);
+    background-color: #f1502f;
     font-size: larger;
     font-family: "Roboto", sans-serif;
     margin: 0;
@@ -47,4 +47,21 @@ iframe {
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+.log {
+  color: white;
+  text-align: center;
+}
+
+.log-header {
+  color: black;
+}
+
+.log-text {
+  color: black;
+}
+
+.log-body {
+  background-color: rgb(27, 23, 31);
 }
