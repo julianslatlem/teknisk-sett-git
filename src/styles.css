@@ -1,16 +1,16 @@
-body {
+.fakta {
+ 
     background-color: rgb(255, 115, 0);
     font-size: larger;
     font-family: "Poppins", sans-serif;
     margin: 0;
 }
 
-nav {
-    float: left; /*Gjør at child-elementer som flyter (float), holder seg inne i boksen */
+nav{
+    float: left; 
     width: 100%;
     background-color: #24262e;  
-    position:sticky; /*Gjør at menylinja fester seg til et fast punkt i vinduet når man skroller. Hvor den fester seg, angir man med top, left, right og/eller bottom, som på neste linje.*/
-    top: 0px;
+    position:sticky; 
     z-index: 1000;
   }
   
