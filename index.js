@@ -1,7 +1,7 @@
 function openhome() {
-    document.getElementById("iframe").src = "src/home.html";
+    document.getElementById("iframe").src = "pages/home.html";
 }
 
 function openlog() {
-    document.getElementById("iframe").src = "src/log.html";
+    document.getElementById("iframe").src = "pages/log.html";
 }
