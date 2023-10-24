@@ -1,7 +1,15 @@
-function openhome() {
-    document.getElementById("iframe").src = "pages/home.html";
+function openHome() {
+    document.getElementById("page").src = "home.html";
 }
 
-function openlog() {
-    document.getElementById("iframe").src = "pages/log.html";
+function openLog() {
+    document.getElementById("page").src = "log.html";
+}
+
+function openGit() {
+    document.getElementById("page").src = "git.html";
+}
+
+function openGitHub() {
+    document.getElementById("page").src = "github.html";
 }
