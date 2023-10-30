@@ -209,3 +209,28 @@ footer {
 .code-snippet-param {
     color: #bc9257;
 }
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #24262e;
+
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .nisse {
+    height: 50px;
+    background-color: #f2725800;
+    color: #F1502F;
+}
