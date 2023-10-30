@@ -31,10 +31,11 @@ canvas {
 }
 
 main {
+    font-family: "Poppins";
     margin-top: 50px;
     width: 100%;
     position: absolute;
-    color: white;
+    color: #a28f8b;
     font-size: larger;
 }
 
