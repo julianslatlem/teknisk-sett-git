@@ -2,11 +2,11 @@ import resolve from '@rollup/plugin-node-resolve';
 
 export default [
 	{
-		input: "./home.js",
+		input: "./javascript/home.js",
 		output: [
 			{
 				format: 'cjs',
-				file: "./home-bundle.js"
+				file: "./bundles/home-bundle.js"
 			},
 		],
 		plugins: [
@@ -14,11 +14,11 @@ export default [
 		]
 	},
 	{
-		input: "./git-logo.js",
+		input: "./javascript/git-logo.js",
 		output: [
 			{
 				format: 'cjs',
-				file: "./git-logo-bundle.js"
+				file: "./bundles/git-logo-bundle.js"
 			},
 		],
 		plugins: [

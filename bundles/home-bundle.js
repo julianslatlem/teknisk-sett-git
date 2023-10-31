@@ -40829,7 +40829,7 @@ scene.add(directionalLight);
 
 let torous;
 
-loader.load("./models/morten.glb", (gltf) => {
+loader.load("../models/morten.glb", (gltf) => {
     torous = gltf.scene;
     
     torous.scale.set(50, 50, 50);

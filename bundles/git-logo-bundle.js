@@ -40830,7 +40830,7 @@ scene.add(directionalLight);
 
 let torous;
 
-loader.load("./models/git-logo.glb", (gltf) => {
+loader.load("../models/git-logo.glb", (gltf) => {
     torous = gltf.scene;
     
     torous.scale.set(10, 10, 10);
@@ -40841,7 +40841,7 @@ loader.load("./models/git-logo.glb", (gltf) => {
 
 let torous2;
 
-loader.load("./models/github-logo.glb", (gltf) => {
+loader.load("../models/github-logo.glb", (gltf) => {
     torous2 = gltf.scene;
     
     torous2.scale.set(10, 10, 10);
