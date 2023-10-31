@@ -40808,7 +40808,7 @@ const scene = new Scene();
 const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new WebGLRenderer({
-    canvas: document.getElementById("backgroundCanvas"),
+    canvas: document.getElementById("testCanvas"),
     antialias: true,
 });
 
@@ -40821,60 +40821,50 @@ new MeshBasicMaterial({color: 0xf1502f, wireframe: true});
 // const torous = new THREE.Mesh(geometry, material);
 // scene.add(torous);
 
-const ambientLight = new AmbientLight(0xaaaaff, 0.5); // soft white light
+const ambientLight = new AmbientLight(0xffffff, 0.5); // soft white light
 scene.add(ambientLight);
 
 const directionalLight = new DirectionalLight(0xffffff, 1);
+directionalLight.rotation.z += 1;
 scene.add(directionalLight);
 
 let torous;
 
-loader.load("./models/morten.glb", (gltf) => {
+loader.load("./models/git-logo.glb", (gltf) => {
     torous = gltf.scene;
     
-    torous.scale.set(50, 50, 50);
+    torous.scale.set(10, 10, 10);
+    torous.position.x = -10;
 
     scene.add(torous);
 });
 
-const initialColor = new Color(0x010409);
-const targetColor1 = new Color(0x0d1117);
-const targetColor2 = new Color(0x010409);
+let torous2;
 
-scene.background = initialColor;
+loader.load("./models/github-logo.glb", (gltf) => {
+    torous2 = gltf.scene;
+    
+    torous2.scale.set(10, 10, 10);
+    torous2.position.x = 10;
+
+    scene.add(torous2);
+});
+
 
 function moveCamera() {
-    const t = document.body.getBoundingClientRect().top;
-    // torous.rotation.z = t * -0.002;
-    // torous.rotation.y = t * -0.00285;
-    torous.position.z = (t * -0.0038);
-
-    camera.fov = 75 + t * -0.011;
-    camera.updateProjectionMatrix();
-
-    // if (t < -1500) {
-    //     torous.position.y = (t + 1500) * -0.02;
-    // }
-
-    const progress = Math.min((t * 5) * -0.00015, 10);
-
-    const color = new Color();
-    color.lerpColors(initialColor, targetColor1, Math.min(progress, 1));
-
-    if (progress > 2.5) {
-        color.lerpColors(targetColor1, targetColor2, progress - 2.5);
-    }
-
-    scene.background = color;
-    renderer.setClearColor(color, 1);
+    document.body.getBoundingClientRect().top;
 }
+
+const color = new Color();
+renderer.setClearColor(color, 0);
 
 document.body.onscroll = moveCamera;
 
 function animate() {
     requestAnimationFrame(animate);
 
-    document.body.getBoundingClientRect().top;
+    torous.rotation.y += 0.01;
+    torous2.rotation.y += -0.01;
 
     renderer.render(scene, camera);
 }

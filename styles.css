@@ -33,8 +33,9 @@ body {
 }
 
 #testCanvas {
-    position: block;
+    position: absolute;
     background-color: transparent;
+    top: 200pt;
 }
 
 main {
