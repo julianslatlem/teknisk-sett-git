@@ -14,11 +14,11 @@ export default [
 		]
 	},
 	{
-		input: "./javascript/git-logo.js",
+		input: "./javascript/logo.js",
 		output: [
 			{
 				format: 'cjs',
-				file: "./bundles/git-logo-bundle.js"
+				file: "./bundles/logo-bundle.js"
 			},
 		],
 		plugins: [
