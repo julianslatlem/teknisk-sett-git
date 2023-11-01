@@ -32,27 +32,18 @@ body {
     left: 0;
 }
 
-#logoCanvas {
+#testCanvas {
     position: absolute;
     background-color: transparent;
     top: 200pt;
 }
 
-
-.daniellog {
-    font-family: "Poppins";
-    margin-top: 50px;
-    width: 100%;
-    position: absolute;
-    color: #F1502F;
-    font-size: larger;
-} 
 main {
     font-family: "Poppins";
     margin-top: 50px;
     width: 100%;
     position: absolute;
-    color: #ffffff;
+    color: #ffdbb2;
     font-size: larger;
 }
 
