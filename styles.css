@@ -13,6 +13,11 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    /*color: #551a8b;*/
+    color: #F1502F;
+}
+
 #page {
     width: 100%;
     height: 100%;
