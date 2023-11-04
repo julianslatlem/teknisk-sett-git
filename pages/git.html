@@ -15,33 +15,96 @@
 
         <div class="spacer-short"></div>
 
-        <div class="subtitle-small">How does Git work?</div>
-        <div class="text">Git virker med det som kalles for "kommandoer" eller "commands".<br>
-            Det vil si at det er delt opp på en spesiell måte.
+        <div class="subtitle-small">How does Git actually work?</div>
+        <div class="text">
+            Git operates entirely from within a hidden folder called ".git" in your project directory.
+            <br>
+            This folder contains the complete history of your project, including all changes and branches.
+            <br>
+            All this in a single hidden folder, this is the most precious folder you have.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">How do you use Git?</div>
+        <div class="text">
+            Using Git involves writing a series of commands in your terminal or through a Git client.
+            <br>
+            You start by initializing a Git repository in your project directory with 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">init</div>
+            </code>.
+            <br>
+            Then, you stage your changes using 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">add</div>
+            </code> 
+            and commit them with 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">commit</div>
+            </code>.
+            <br>
+            Finally, you can share your work with others by pushing to a remote repository using 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">push</div>
+            </code>.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">What is a remote repository?</div>
+        <div class="text">
+            A remote repository is like a place in the cloud for your code, a place in the digital sky.
+            <br>
+            It's where you share, store, and collaborate on your projects with a global reach.
+            <br>
+            You can connect a remote repository to your local one using 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">remote&nbsp;</div>
+                <div class="code-snippet-command">add&nbsp;</div>
+                <div class="code-snippet-param">[name]&nbsp;</div>
+                <div class="code-snippet-param">[url]</div>
+            </code>.
         </div>
 
         <div class="spacer-short"></div>
 
         <div class="subtitle-small">What is a commit?</div>
         <div class="text">
-            A commit is like a snapshot of how your code looked at a point in time.
+            A commit is like a snapshot in time for your currently staged code.
             <br>
-            It is an essential part of Git, and is definitely one of the most used Git commands.
+            It makes sure your current code gets remembered, and is easy to revert back to if so needed.
             <br>
-            The syntax is pretty simple:
+            It should be noted that you should try to commit as often as possible, even just for minor changes,
             <br>
+            and you should always make the commit message short and straight to the point.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">What are staged files?</div>
+        <div class="text">
+            Staged files are files that are currently getting tracked by Git.
+            <br>
+            You can stage a file with the command 
             <code class="code-snippet">
                 <div class="code-snippet-bash">$&nbsp;</div>
                 <div class="code-snippet-git">git&nbsp;</div>
-                <div class="code-snippet-command">commit</div>
-                <div class="code-snippet-arg">&nbsp;-m</div>
-                <div class="code-snippet-param">&nbsp;[message]</div>
-            </code>
+                <div class="code-snippet-command">add&nbsp;</div>
+                <div class="code-snippet-param">[path]</div>
+            </code>.
             <br>
-            Where <code class="code-snippet">
-                <div class="code-snippet-command">commit</div>
-            </code>
-            is the only required part.
+            When staged, the file's changes will be included in the next commit.
         </div>
 
         <div class="spacer-short"></div>
