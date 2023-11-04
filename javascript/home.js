@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 
 /* This creates a renderer which essentially just manages everything that needs to get rendered. */
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("backgroundCanvas"), // This gets the canvas with an id of "backgroundCanvas" from the main html page and sets it as the active rendering canvas for the renderer.
+    canvas: document.getElementById("backgroundCanvas"), // This gets the canvas with an id of "backgroundCanvas" from the home html page and sets it as the active rendering canvas for the renderer.
     antialias: true,
 });
 
