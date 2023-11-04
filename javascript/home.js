@@ -35,7 +35,6 @@ scene.add(directionalLight);
 
 let mortenHead; // This creates a variable for the head model soon to be loaded.
 
-
 /* This loads the head model from the specified path. */
 loader.load("../models/morten.glb", (gltf) => {
     mortenHead = gltf.scene;
@@ -55,7 +54,7 @@ scene.background = initialColor;
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
 
-    mortenHead.position.z = (t * -0.0037);
+    mortenHead.position.z = (t * -0.0035);
 
     camera.fov = 75 + t * -0.011;
     camera.updateProjectionMatrix();

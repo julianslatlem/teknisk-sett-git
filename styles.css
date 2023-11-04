@@ -122,6 +122,15 @@ button:hover {
     color: #F1502F;
 }
 
+.next-button {
+    margin: auto;
+    font-size: 50pt;
+}
+
+.next-button:hover {
+
+}
+
 footer {
     text-align: center;
     font-size: larger;

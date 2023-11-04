@@ -24,5 +24,17 @@ export default [
 		plugins: [
 			resolve(),
 		]
+	},
+	{
+		input: "./javascript/nisse.js",
+		output: [
+			{
+				format: 'cjs',
+				file: "./bundles/nisse-bundle.js"
+			},
+		],
+		plugins: [
+			resolve(),
+		]
 	}
 ];
