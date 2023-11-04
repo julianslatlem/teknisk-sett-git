@@ -64,8 +64,8 @@ function moveCamera() {
     const color = new THREE.Color();
     color.lerpColors(initialColor, targetColor1, Math.min(progress, 1)); // This fades the initial and target colors according to the amount scrolled on the page.
 
-    if (progress > 2.5) {
-        color.lerpColors(targetColor1, targetColor2, Math.min(progress - 2.5, 1));
+    if (progress > 2.9) {
+        color.lerpColors(targetColor1, targetColor2, Math.min((progress - 2.9) * 4, 1));
     }
 
     scene.background = color;
