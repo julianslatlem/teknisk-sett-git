@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="../styles.css">
 
+    <script type="text/javascript" src="../javascript/redirect.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -48,5 +50,30 @@
             <p>&copy; 2023 Teknisk Sett UB. All rights served.</p>
         </footer>
     </main>
+
+    <nav id="navbar">
+        <ul>
+            <li><button title="Home" onclick="openPage('home.html')">Home</button></li>
+            <li><button title="Git" onclick="openPage('git.html')">Git</button></li>
+            <li><button title="GitHub" onclick="openPage('github.html')">GitHub</button></li>
+            <li><button title="Tutorial" onclick="openPage('tutorial.html')">Tutorial</button></li>
+            <li><button title="Commands" onclick="openPage('commands.html')">Commands</button></li>
+            <li><button title="Log" onclick="openPage('log.html')">Log</button></li>
+
+            <li class="dropdown">
+                <button style="color: #F1502F;" class="dropdown-tab">Separate Logs</button>
+                <div class="dropdown-content">
+                    <hr>
+                    <button class="dropdown-button" title="Log" onclick="openPage('julianlog.html')">Julian</button>
+                    <hr>
+                    <button class="dropdown-button" title="Log" onclick="openPage('benjaminlog.html')">Benjamin</button>
+                    <hr>
+                    <button style="color: #F1502F;" class="dropdown-button" title="Log" onclick="openPage('mortenlog.html')">Morten</button>
+                    <hr>
+                    <button class="dropdown-button" title="Log" onclick="openPage('daniellog.html')">Daniel</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
 </body>
 </html>
