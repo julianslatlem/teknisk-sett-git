@@ -1,11 +1,18 @@
 setTimeout(function() {
-    var currentURL = window.location.href;
+    if (window.location.href == "https://julianslatlem.github.io/teknisk-sett-git/") {
+        var newURL = window.location.href + "pages/home.html";
 
-    var urlParts = currentURL.split('/');
+        window.location.href = newURL;
+    }
+    else {
+        var currentURL = window.location.href;
 
-    urlParts[urlParts.length - 1] = 'pages/home.html';
+        var urlParts = currentURL.split('/');
 
-    var newURL = urlParts.join('/');
+        urlParts[urlParts.length - 1] = 'pages/home.html';
 
-    window.location.href = newURL;
+        var newURL = urlParts.join('/');
+
+        window.location.href = newURL;
+    }
 });
