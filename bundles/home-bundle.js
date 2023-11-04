@@ -32052,121 +32052,6 @@ function testPoint( point, index, localThresholdSq, matrixWorld, raycaster, inte
 
 }
 
-class TorusGeometry extends BufferGeometry {
-
-	constructor( radius = 1, tube = 0.4, radialSegments = 12, tubularSegments = 48, arc = Math.PI * 2 ) {
-
-		super();
-
-		this.type = 'TorusGeometry';
-
-		this.parameters = {
-			radius: radius,
-			tube: tube,
-			radialSegments: radialSegments,
-			tubularSegments: tubularSegments,
-			arc: arc
-		};
-
-		radialSegments = Math.floor( radialSegments );
-		tubularSegments = Math.floor( tubularSegments );
-
-		// buffers
-
-		const indices = [];
-		const vertices = [];
-		const normals = [];
-		const uvs = [];
-
-		// helper variables
-
-		const center = new Vector3();
-		const vertex = new Vector3();
-		const normal = new Vector3();
-
-		// generate vertices, normals and uvs
-
-		for ( let j = 0; j <= radialSegments; j ++ ) {
-
-			for ( let i = 0; i <= tubularSegments; i ++ ) {
-
-				const u = i / tubularSegments * arc;
-				const v = j / radialSegments * Math.PI * 2;
-
-				// vertex
-
-				vertex.x = ( radius + tube * Math.cos( v ) ) * Math.cos( u );
-				vertex.y = ( radius + tube * Math.cos( v ) ) * Math.sin( u );
-				vertex.z = tube * Math.sin( v );
-
-				vertices.push( vertex.x, vertex.y, vertex.z );
-
-				// normal
-
-				center.x = radius * Math.cos( u );
-				center.y = radius * Math.sin( u );
-				normal.subVectors( vertex, center ).normalize();
-
-				normals.push( normal.x, normal.y, normal.z );
-
-				// uv
-
-				uvs.push( i / tubularSegments );
-				uvs.push( j / radialSegments );
-
-			}
-
-		}
-
-		// generate indices
-
-		for ( let j = 1; j <= radialSegments; j ++ ) {
-
-			for ( let i = 1; i <= tubularSegments; i ++ ) {
-
-				// indices
-
-				const a = ( tubularSegments + 1 ) * j + i - 1;
-				const b = ( tubularSegments + 1 ) * ( j - 1 ) + i - 1;
-				const c = ( tubularSegments + 1 ) * ( j - 1 ) + i;
-				const d = ( tubularSegments + 1 ) * j + i;
-
-				// faces
-
-				indices.push( a, b, d );
-				indices.push( b, c, d );
-
-			}
-
-		}
-
-		// build geometry
-
-		this.setIndex( indices );
-		this.setAttribute( 'position', new Float32BufferAttribute( vertices, 3 ) );
-		this.setAttribute( 'normal', new Float32BufferAttribute( normals, 3 ) );
-		this.setAttribute( 'uv', new Float32BufferAttribute( uvs, 2 ) );
-
-	}
-
-	copy( source ) {
-
-		super.copy( source );
-
-		this.parameters = Object.assign( {}, source.parameters );
-
-		return this;
-
-	}
-
-	static fromJSON( data ) {
-
-		return new TorusGeometry( data.radius, data.tube, data.radialSegments, data.tubularSegments, data.arc );
-
-	}
-
-}
-
 class MeshStandardMaterial extends Material {
 
 	constructor( parameters ) {
@@ -40797,18 +40682,20 @@ const loader = new GLTFLoader();
 
 window.addEventListener("resize", onWindowResize, false);
 
+/* This function makes sure the canvas and renderer properly fits the browser window when the user changes it's size. */
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-const scene = new Scene();
+const scene = new Scene(); // The actual scene to render.
 
 const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+/* This creates a renderer which essentially just manages everything that needs to get rendered. */
 const renderer = new WebGLRenderer({
-    canvas: document.getElementById("backgroundCanvas"),
+    canvas: document.getElementById("backgroundCanvas"), // This gets the canvas with an id of "backgroundCanvas" from the main html page and sets it as the active rendering canvas for the renderer.
     antialias: true,
 });
 
@@ -40816,53 +40703,46 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-new TorusGeometry(10, 3, 10, 50);
-new MeshBasicMaterial({color: 0xf1502f, wireframe: true});
-// const torous = new THREE.Mesh(geometry, material);
-// scene.add(torous);
-
-const ambientLight = new AmbientLight(0xaaaaff, 0.5); // soft white light
+const ambientLight = new AmbientLight(0xaaaaff, 0.4);
 scene.add(ambientLight);
 
-const directionalLight = new DirectionalLight(0xffffff, 1);
+const directionalLight = new DirectionalLight(0xffffff, 0.5);
 scene.add(directionalLight);
 
-let torous;
+let mortenHead; // This creates a variable for the head model soon to be loaded.
 
+
+/* This loads the head model from the specified path. */
 loader.load("../models/morten.glb", (gltf) => {
-    torous = gltf.scene;
+    mortenHead = gltf.scene;
     
-    torous.scale.set(50, 50, 50);
+    mortenHead.scale.set(60, 60, 60); // Scales the model to better fit the page.
 
-    scene.add(torous);
+    scene.add(mortenHead);
 });
 
-const initialColor = new Color(0x010409);
-const targetColor1 = new Color(0x0d1117);
-const targetColor2 = new Color(0x010409);
+const initialColor = new Color(0x010409); //
+const targetColor1 = new Color(0x0d1117); // These are the colors faded between in order when scrolling through the page.
+const targetColor2 = new Color(0x010409); //
 
 scene.background = initialColor;
 
+/* This function gets executed whenever the user scrolls the page. */
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
-    // torous.rotation.z = t * -0.002;
-    // torous.rotation.y = t * -0.00285;
-    torous.position.z = (t * -0.0038);
+
+    mortenHead.position.z = (t * -0.0037);
 
     camera.fov = 75 + t * -0.011;
     camera.updateProjectionMatrix();
 
-    // if (t < -1500) {
-    //     torous.position.y = (t + 1500) * -0.02;
-    // }
-
     const progress = Math.min((t * 5) * -0.00015, 10);
 
     const color = new Color();
-    color.lerpColors(initialColor, targetColor1, Math.min(progress, 1));
+    color.lerpColors(initialColor, targetColor1, Math.min(progress, 1)); // This fades the initial and target colors according to the amount scrolled on the page.
 
     if (progress > 2.5) {
-        color.lerpColors(targetColor1, targetColor2, progress - 2.5);
+        color.lerpColors(targetColor1, targetColor2, Math.min(progress - 2.5, 1));
     }
 
     scene.background = color;
@@ -40871,10 +40751,9 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 
+/* This function gets executed every frame and renders the scene onto the canvas. */
 function animate() {
     requestAnimationFrame(animate);
-
-    document.body.getBoundingClientRect().top;
 
     renderer.render(scene, camera);
 }

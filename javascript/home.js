@@ -1,23 +1,25 @@
-import * as THREE from "three";
+import * as THREE from "three"; // This imports everything needed from the three.js library.
 
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; // This imports the model loader used to import the head model.
 
 const loader = new GLTFLoader();
 
 window.addEventListener("resize", onWindowResize, false);
 
+/* This function makes sure the canvas and renderer properly fits the browser window when the user changes it's size. */
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-const scene = new THREE.Scene();
+const scene = new THREE.Scene(); // The actual scene to render.
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+/* This creates a renderer which essentially just manages everything that needs to get rendered. */
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("backgroundCanvas"),
+    canvas: document.getElementById("backgroundCanvas"), // This gets the canvas with an id of "backgroundCanvas" from the main html page and sets it as the active rendering canvas for the renderer.
     antialias: true,
 });
 
@@ -25,53 +27,46 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
-const geometry = new THREE.TorusGeometry(10, 3, 10, 50);
-const material = new THREE.MeshBasicMaterial({color: 0xf1502f, wireframe: true});
-// const torous = new THREE.Mesh(geometry, material);
-// scene.add(torous);
-
-const ambientLight = new THREE.AmbientLight(0xaaaaff, 0.5); // soft white light
+const ambientLight = new THREE.AmbientLight(0xaaaaff, 0.4);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
 scene.add(directionalLight);
 
-let torous;
+let mortenHead; // This creates a variable for the head model soon to be loaded.
 
+
+/* This loads the head model from the specified path. */
 loader.load("../models/morten.glb", (gltf) => {
-    torous = gltf.scene;
+    mortenHead = gltf.scene;
     
-    torous.scale.set(50, 50, 50);
+    mortenHead.scale.set(60, 60, 60); // Scales the model to better fit the page.
 
-    scene.add(torous);
+    scene.add(mortenHead);
 });
 
-const initialColor = new THREE.Color(0x010409);
-const targetColor1 = new THREE.Color(0x0d1117);
-const targetColor2 = new THREE.Color(0x010409);
+const initialColor = new THREE.Color(0x010409); //
+const targetColor1 = new THREE.Color(0x0d1117); // These are the colors faded between in order when scrolling through the page.
+const targetColor2 = new THREE.Color(0x010409); //
 
 scene.background = initialColor;
 
+/* This function gets executed whenever the user scrolls the page. */
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
-    // torous.rotation.z = t * -0.002;
-    // torous.rotation.y = t * -0.00285;
-    torous.position.z = (t * -0.0038);
+
+    mortenHead.position.z = (t * -0.0037);
 
     camera.fov = 75 + t * -0.011;
     camera.updateProjectionMatrix();
 
-    // if (t < -1500) {
-    //     torous.position.y = (t + 1500) * -0.02;
-    // }
-
     const progress = Math.min((t * 5) * -0.00015, 10);
 
     const color = new THREE.Color();
-    color.lerpColors(initialColor, targetColor1, Math.min(progress, 1));
+    color.lerpColors(initialColor, targetColor1, Math.min(progress, 1)); // This fades the initial and target colors according to the amount scrolled on the page.
 
     if (progress > 2.5) {
-        color.lerpColors(targetColor1, targetColor2, progress - 2.5)
+        color.lerpColors(targetColor1, targetColor2, Math.min(progress - 2.5, 1));
     }
 
     scene.background = color;
@@ -80,13 +75,9 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 
+/* This function gets executed every frame and renders the scene onto the canvas. */
 function animate() {
     requestAnimationFrame(animate);
-
-    const t = document.body.getBoundingClientRect().top;
-    if (t < -1000) {
-        //torous.rotation.z -= ((t + 1000) / 1000) * -0.002;
-    }
 
     renderer.render(scene, camera);
 }
