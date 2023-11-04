@@ -75,7 +75,7 @@ nav {
     left: 0;
     background-color: #24262e;
 
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out;
 
     border-style: solid;
     border-top: none;
@@ -87,8 +87,7 @@ nav {
 }
 
 .nav--hidden {
-    transform: translateY(calc(-1 * var(--nav-height)));
-    box-shadow: none;
+    transform: translateY(-100%);
 }
 
 ul {
@@ -130,10 +129,6 @@ button:hover {
 .next-button {
     margin: auto;
     font-size: 50pt;
-}
-
-.next-button:hover {
-
 }
 
 footer {
@@ -274,4 +269,21 @@ footer {
     height: 50px;
     background-color: #f2725800;
     color: #F1502F;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #24262e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b8b9c3;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ececf1;
 }
