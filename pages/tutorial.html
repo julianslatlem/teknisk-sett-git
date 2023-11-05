@@ -19,30 +19,39 @@
         <div class="subtitle-small">Project Setup</div>
         <div class="text">First of all, you'll need to create a git repository.
             <br>
-            You can do this with the command 
+            You can create a Git repository with the command 
             <code class="code-snippet">
                 <div class="code-snippet-bash">$&nbsp;</div>
                 <div class="code-snippet-git">git&nbsp;</div>
                 <div class="code-snippet-command">init</div>
-            </code>
-            .
+            </code>.
+            <br>
+            This will create a hidden ".git" folder in the current directory.
+            <br>
+            The ".git" folder will contain everything from the commit history to branches.
         </div>
 
         <div class="spacer-short"></div>
 
         <div class="subtitle-small">Committing</div>
         <div class="text">
+            When you have made changes that you want to record, you have to commit them.
+            <br>
             Before committing, you'll first have to stage your files using the command 
             <code class="code-snippet">
                 <div class="code-snippet-bash">$&nbsp;</div>
                 <div class="code-snippet-git">git&nbsp;</div>
                 <div class="code-snippet-command">add</div>
                 <div class="code-snippet-param">&nbsp;[path]</div>
-            </code>
-            .
+            </code>,
             <br>
-            Once you have staged your wanted files, you can make a commit using the following command: 
+            where <code class="code-snippet"><div class="code-snippet-param">[path]</div></code> is the path to the folder or file you want to stage,
             <br>
+            this is often just <code class="code-snippet"><div class="code-snippet-param">.</div></code> meaning the current directory along with all its sub-folders.
+            <br><br>
+            Once you have staged the files you want to record the changes of,
+            <br>
+            you can commit the changes using the command 
             <code class="code-snippet">
                 <div class="code-snippet-bash">$&nbsp;</div>
                 <div class="code-snippet-git">git&nbsp;</div>
@@ -51,6 +60,134 @@
                 <div class="code-snippet-param">&nbsp;[message]</div>
             </code>
             .
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">Pushing</div>
+        <div class="text">
+            The next logical step when using Git in conjunction with GitHub,
+            
+            is to push the local changes to a remote repository.
+            <br>
+            You can do this by first linking the local repository to the remote one with the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">remote&nbsp;</div>
+                <div class="code-snippet-command">add&nbsp;</div>
+                <div class="code-snippet-param">[name]&nbsp;</div>
+                <div class="code-snippet-param">[url]</div>
+            </code>,
+            <br>
+            where <code class="code-snippet"><div class="code-snippet-param">[name]</div></code> is a name of your choice to refer to the remote repository (often just "origin") to be used in future Git commands,
+            <br>
+            and <code class="code-snippet"><div class="code-snippet-param">[url]</div></code> is the URL of the remote repository you want to link to.
+            <br><br>
+            Once you have successfully linked a remote repository, you can push your local commits using the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">push</div>
+            </code>.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">Pulling</div>
+        <div class="text">
+            When remote changes surpass the local ones, you'll want to pull those changes into your local repository,
+            <br>
+            to do this, you can use the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">fetch</div>
+            </code> followed by 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">pull</div>
+            </code>.
+            <br>
+            These commands will effectively merge the remote changes with your local ones,
+            <br>
+            making your local repository up to date with the remote one.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">Branching</div>
+        <div class="text">
+            The time comes when you'll want to branch out to work on bigger changes by yourself.
+            <br>
+            You can create a new branch with the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">branch&nbsp;</div>
+                <div class="code-snippet-param">[name]</div>
+            </code>,
+            <br>
+            where <code class="code-snippet"><div class="code-snippet-param">[name]</div></code> is the name of the new branch.
+            <br>
+            To change branches back and forth, you can use the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">checkout&nbsp;</div>
+                <div class="code-snippet-param">[name]</div>
+            </code>,
+            <br>
+            where <code class="code-snippet"><div class="code-snippet-param">[name]</div></code> again is the name of the branch you want to go into.
+            <br><br>
+            Now, all the changes you make will be contained in the currently active branch,
+            <br>
+            and will not disturb the other branches until you merge.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">Merging</div>
+        <div class="text">
+            When you have finished working on a branch, you might want to merge those changes into the main branch.
+            <br>
+            You can merge two branches with the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">merge&nbsp;</div>
+                <div class="code-snippet-param">[name]</div>
+            </code>,
+            <br>
+            where <code class="code-snippet"><div class="code-snippet-param">[name]</div></code> is the name of the branch you want to merge into the currently active branch.
+            <br>
+            Keep in mind that this merges the specified branch into the currently active one,
+            <br>
+            meaning that you'll want to be in the branch you want to merge into.
+            <br><br>
+            It's also worth noting that there is a possibility for merge conflicts,
+            <br>
+            in which case, you'll need to resolve those before continuing the merge.
+            <br>
+            You can do this by going into the files provided by Git, and sorting out the wanted and unwanted code,
+            <br>
+            Then continuing the merge by typing the command once again.
+        </div>
+
+        <div class="spacer-short"></div>
+
+        <div class="subtitle-small">That's all</div>
+        <div class="text">
+            And that's all you need to know to start using Git.
+            <br>
+            I hope that this has showed you the general workflow for Git,
+            <br>
+            and even though not everything was covered extensively, I hope that you at least learned something.
+            <br>
+            The next page shows some common git commands that you'll most likely use in the near future.
+            <br><br>
+            Tutorial provided by Julian.
         </div>
 
         <div class="spacer-short"></div>

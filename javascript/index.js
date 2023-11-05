@@ -1,3 +1,4 @@
+/* This effectively redirects the user to the home.html page upon entering the main index.html. */
 setTimeout(function() {
     if (window.location.href == "https://julianslatlem.github.io/teknisk-sett-git/") {
         var newURL = window.location.href + "pages/home.html";
