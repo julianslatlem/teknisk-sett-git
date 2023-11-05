@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Git & GitHub</title>
 
-    <link rel="stylesheet" href="../styles.css">
-    <script type="text/javascript" src="../javascript/redirect.js"></script>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <script type="text/javascript" src="../JS/redirect.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- This canvas element is used for rendering custom images, and in this instance, is used as the page background. -->
     <canvas id="backgroundCanvas"></canvas>
 
     <main>
@@ -113,6 +114,7 @@
         </footer>
     </main>
 
+    <!-- These scripts are used for rendering the 3D objects, it's important that they get put after the canvas elements, as the canvas elements are used by them as a rendering surface. -->
     <script type="module" src="../bundles/logo-bundle.js"></script>
     <script type="module" src="../bundles/home-bundle.js"></script>
 
@@ -141,6 +143,6 @@
         </ul>
     </nav>
 
-    <script type="module" src="../javascript/navbar.js"></script>
+    <script type="module" src="../JS/navbar.js"></script>
 </body>
 </html>

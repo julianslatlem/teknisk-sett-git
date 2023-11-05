@@ -2,7 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 
 export default [
 	{
-		input: "./javascript/home.js",
+		input: "./JS/home.js",
 		output: [
 			{
 				format: 'cjs',
@@ -14,7 +14,7 @@ export default [
 		]
 	},
 	{
-		input: "./javascript/logo.js",
+		input: "./JS/logo.js",
 		output: [
 			{
 				format: 'cjs',
@@ -26,7 +26,7 @@ export default [
 		]
 	},
 	{
-		input: "./javascript/nisse.js",
+		input: "./JS/nisse.js",
 		output: [
 			{
 				format: 'cjs',

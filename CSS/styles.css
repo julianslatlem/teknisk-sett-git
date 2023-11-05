@@ -1,0 +1,293 @@
+body {
+    --nav-height: 50px;
+
+    padding-top: var(--nav-height);
+
+    margin: 0;
+    background-color: #010409;
+
+    font-family: "Poppins";
+
+    user-select: none;
+
+    overflow-x: hidden;
+}
+
+a {
+    /*color: #551a8b;*/
+    color: #F1502F;
+}
+
+#page {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#backgroundCanvas {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#logoCanvas {
+    position: absolute;
+    background-color: transparent;
+    top: 200pt;
+}
+
+main {
+    font-family: "Poppins";
+    margin-top: 50px;
+    width: 100%;
+    position: absolute;
+    color: #ffffff;
+    font-size: larger;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+}
+
+hr {
+    margin: 0;
+    margin-left: 10pt;
+    margin-right: 10pt;
+    height: 2px;
+    background-color: #30363d;
+    border: none;
+}
+
+nav {
+    height: var(--nav-height);
+    float: left;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24262e;
+
+    transition: transform 0.2s ease-in-out;
+
+    border-style: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    border-width: 2pt;
+    border-color: #30363d;
+}
+
+.nav--hidden {
+    transform: translateY(-100%);
+}
+
+ul {
+    height: var(--nav-height);
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    height: var(--nav-height);
+    float: left;
+    list-style-type: none;
+}
+
+button {
+    height: var(--nav-height);
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px;
+    background-color: #f1502f00;
+    font-weight: bold;
+    border: none;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+    margin-left: 10pt;
+    margin-right: 10pt;
+
+    transition: color 0.1s ease-in-out;
+}
+
+button:hover {
+    height: 50px;
+    background-color: #f2725800;
+    color: #F1502F;
+}
+
+.next-button {
+    margin: auto;
+    font-size: 50pt;
+}
+
+footer {
+    text-align: center;
+    font-size: larger;
+    width: 100%;
+    background-color: #1e1a2200;
+}
+
+.log-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.title {
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.subtitle-small {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.log-text {
+    text-align: center;
+    font-size: medium;
+    font-weight: normal;
+}
+
+.text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.log-spacer {
+    height: 50pt;
+}
+
+.spacer-short {
+    height: 200pt;
+}
+
+.spacer {
+    height: 500pt;
+}
+
+.spacer-large {
+    height: 1000pt;
+}
+
+.master-title {
+    text-align: center;
+    font-size: 200px;
+    font-weight: bold;
+}
+
+.authors {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.code-snippet {
+    background-color: #000000;
+
+    border-style: solid;
+    border-width: 2pt;
+    border-color: #191e23;
+    border-radius: 10px;
+    padding: 5px;
+
+    display: inline-flex;
+
+    margin-top: 0px;
+}
+
+.code-snippet-bash {
+    color: #696969;
+}
+
+.code-snippet-git {
+    color: #c06767;
+}
+
+.code-snippet-command {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.code-snippet-arg {
+    color: #5b5b5b;
+}
+
+.code-snippet-param {
+    color: #bc9257;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #24262e;
+
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+
+    border-style: solid;
+    border-color: #30363d;
+    border-width: 2pt;
+    border-top: none;
+}
+
+.dropdown-content button {
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-tab {
+    cursor: auto;
+}
+
+.dropdown:hover .dropdown-tab {
+    height: 50px;
+    background-color: #f2725800;
+    color: #F1502F;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #24262e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b8b9c3;
+    
+    border: 3px solid #24262e;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ececf1;
+}

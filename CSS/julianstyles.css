@@ -1,0 +1,8 @@
+#nisseCanvas {
+    position: absolute;
+    background-color: transparent;
+    top: -150pt;
+    left: -400pt;
+
+    z-index: -1;
+}
