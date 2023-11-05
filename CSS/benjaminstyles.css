@@ -1,12 +1,13 @@
 img {
     width: 100%;
-    z-index: -10;
     position: absolute;
+    z-index: -1;
 }
 
 .subtitle-small {
-    color: orange;
+    color: #ffaa00;
 }
+
 .text {
-    color: white;
+    color: #ffffff;
 }

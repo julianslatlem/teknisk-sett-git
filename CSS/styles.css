@@ -1,32 +1,25 @@
 body {
     --nav-height: 50px;
-
     padding-top: var(--nav-height);
 
     margin: 0;
     background-color: #010409;
 
     font-family: "Poppins";
-
     user-select: none;
-
     overflow-x: hidden;
 }
 
-a {
-    /*color: #551a8b;*/
-    color: #F1502F;
+main {
+    margin-top: 50px;
+    width: 100%;
+    position: absolute;
+    color: #ffffff;
+    font-size: larger;
 }
 
-#page {
-    width: 100%;
-    height: 100%;
-    border: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+a {
+    color: #F1502F;
 }
 
 #backgroundCanvas {
@@ -41,20 +34,6 @@ a {
     position: absolute;
     background-color: transparent;
     top: 200pt;
-}
-
-main {
-    font-family: "Poppins";
-    margin-top: 50px;
-    width: 100%;
-    position: absolute;
-    color: #ffffff;
-    font-size: larger;
-}
-
-.icon {
-    width: 35px;
-    height: 35px;
 }
 
 hr {
@@ -78,6 +57,7 @@ nav {
     transition: transform 0.2s ease-in-out;
 
     border-style: solid;
+
     border-top: none;
     border-left: none;
     border-right: none;
@@ -116,6 +96,7 @@ button {
     align-items: center;
     justify-content: center; 
     cursor: pointer;
+
     margin-left: 10pt;
     margin-right: 10pt;
 
@@ -133,16 +114,15 @@ button:hover {
     font-size: 50pt;
 }
 
-footer {
+.master-title {
     text-align: center;
-    font-size: larger;
-    width: 100%;
-    background-color: #1e1a2200;
+    font-size: 200px;
+    font-weight: bold;
 }
 
-.log-title {
+.authors {
     text-align: center;
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -164,44 +144,29 @@ footer {
     font-weight: bold;
 }
 
-.log-text {
-    text-align: center;
-    font-size: medium;
-    font-weight: normal;
-}
-
 .text {
     text-align: center;
     font-size: 30px;
     font-weight: normal;
 }
 
-.log-spacer {
-    height: 50pt;
+.spacer {
+    height: 500pt;
 }
 
 .spacer-short {
     height: 200pt;
 }
 
-.spacer {
-    height: 500pt;
-}
-
 .spacer-large {
     height: 1000pt;
 }
 
-.master-title {
+footer {
     text-align: center;
-    font-size: 200px;
-    font-weight: bold;
-}
-
-.authors {
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: larger;
+    width: 100%;
+    background-color: #1e1a2200;
 }
 
 .code-snippet {
@@ -239,6 +204,7 @@ footer {
     color: #bc9257;
 }
 
+/* This modifies the dropdown used in the nav-bar. */
 .dropdown {
     display: inline-block;
 }
@@ -261,7 +227,9 @@ footer {
     display: block;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block; /* Makes the dropdown appear when hovering above the dropdown button */
+}
 
 .dropdown-tab {
     cursor: auto;
@@ -273,6 +241,7 @@ footer {
     color: #F1502F;
 }
 
+/* This modifies the default scrollbar style. */
 ::-webkit-scrollbar {
     width: 15px;
 }
