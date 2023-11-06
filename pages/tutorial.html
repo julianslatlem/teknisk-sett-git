@@ -179,6 +179,35 @@
 
         <div class="spacer-short"></div>
 
+        <div class="subtitle-small">Reverting</div>
+        <div class="text">
+            And of course, the time might come when you'll want to revert back to a previous state,
+            <br>
+            this might be because of a major flaw in your code, or just an accidental commit.
+            <br>
+            You can revert to a previous commit using the command 
+            <code class="code-snippet">
+                <div class="code-snippet-bash">$&nbsp;</div>
+                <div class="code-snippet-git">git&nbsp;</div>
+                <div class="code-snippet-command">revert&nbsp;</div>
+                <div class="code-snippet-arg">--hard&nbsp;</div>
+                <div class="code-snippet-param">[commit]</div>
+            </code>,
+            <br>
+            where the <code class="code-snippet"><div class="code-snippet-param">[commit]</div></code> is the ID or some indication of the commit you want to revert back to,
+            <br>
+            this is often just <code class="code-snippet"><div class="code-snippet-param">HEAD</div></code> which just means the latest commit, deleting any uncommitted changes.
+            <br>
+            You can also go back multiple commits with <code class="code-snippet"><div class="code-snippet-param">HEAD~[amount]</div></code> instead.
+            <br>
+            <br>
+            This will create a new commit with the codebase now reverted back to the specified previous commit.
+            <br>
+            This commit is just like any other and can even be reverted itself if you so want to.
+        </div>
+
+        <div class="spacer-short"></div>
+
         <div class="subtitle-small">That's all</div>
         <div class="text">
             And that's all you need to know to start using Git.
